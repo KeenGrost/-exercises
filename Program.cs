@@ -16,7 +16,7 @@ namespace exercises
         private static void DrawSnake(int width)
         {
             int value = 1;
-            int[,] resultMatrix = new int[width,width];
+            int[,] resultMatrix = new int[width, width];
             int i = 0;
             int j = 0;
             int currentWidth = width;
@@ -53,13 +53,12 @@ namespace exercises
                 {
                     resultMatrix[i--, j] = value++;
                 }
-
                 i++;
                 j--;
 
                 // move up
                 //
-                int rowStop = currentCircle-1;
+                int rowStop = currentCircle - 1;
                 while (j > rowStop)
                 {
                     resultMatrix[i, j--] = value++;
@@ -68,19 +67,22 @@ namespace exercises
                 i++; // move position right
                 j++; // move position down
                 currentWidth -= 1; // decrease width for 2 points
-                 currentCircle++;
+                currentCircle++;
             }
 
             j = 0;
             // print result matrix
+            int cellLengthMax = Math.Pow(width, 2).ToString(CultureInfo.InvariantCulture).Length + 1;
             while (j < width)
             {
                 i = 0;
                 while (i < width)
                 {
-                    
+
                     string cell = resultMatrix[i, j].ToString();
-                    while ((i != width - 1) && (cell.Length < (Math.Pow(width,2).ToString(CultureInfo.InvariantCulture).Length)+1))
+
+                    // each cell has the same length
+                    while ((i != width - 1) && (cell.Length < cellLengthMax))
                     {
                         cell += " ";
                     }
@@ -88,7 +90,7 @@ namespace exercises
                     i++;
                 }
                 Console.WriteLine();
-               j++;
+                j++;
             }
 
         }
