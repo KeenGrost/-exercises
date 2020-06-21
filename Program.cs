@@ -67,32 +67,8 @@ namespace exercises
                 currentWidth -= 1; // decrease width for 2 points
                 currentCircle++;
             }
-
             
-            // print result matrix
-            //
-            j = 0;
-            int cellLengthMax = Math.Pow(width, 2).ToString(CultureInfo.InvariantCulture).Length + 1;
-            while (j < width)
-            {
-                i = 0;
-                while (i < width)
-                {
-
-                    string cell = resultMatrix[i, j].ToString();
-
-                    // each cell has the same length
-                    while ((i != width - 1) && (cell.Length < cellLengthMax))
-                    {
-                        cell += " ";
-                    }
-                    Console.Write(cell);
-                    i++;
-                }
-                Console.WriteLine();
-                j++;
-            }
-            Console.WriteLine();
+            PrintResultMatrix(width, resultMatrix);
 
         }
 
@@ -152,32 +128,8 @@ namespace exercises
                 currentWidth -= 1; // decrease width for 2 points
                 currentCircle++;
             }
-
-
-            // print result matrix
-            //
-            j = 0;
-            int cellLengthMax = Math.Pow(width, 2).ToString(CultureInfo.InvariantCulture).Length + 1;
-            while (j < width)
-            {
-                i = 0;
-                while (i < width)
-                {
-
-                    string cell = resultMatrix[i, j].ToString();
-
-                    // each cell has the same length
-                    while ((i != width - 1) && (cell.Length < cellLengthMax))
-                    {
-                        cell += " ";
-                    }
-                    Console.Write(cell);
-                    i++;
-                }
-                Console.WriteLine();
-                j++;
-            }
-            Console.WriteLine();
+            
+            PrintResultMatrix(width, resultMatrix);
 
         }
 
@@ -210,17 +162,19 @@ namespace exercises
                 currentCircle++;
             }
 
+            PrintResultMatrix(width, resultMatrix);
+        }
 
-            // print result matrix
-            //
+        private static void PrintResultMatrix(int width, int[,] resultMatrix)
+        {
+            int j;
             j = 0;
             int cellLengthMax = Math.Pow(width, 2).ToString(CultureInfo.InvariantCulture).Length + 1;
             while (j < width)
             {
-                i = 0;
+                int i = 0;
                 while (i < width)
                 {
-
                     string cell = resultMatrix[i, j].ToString();
 
                     // each cell has the same length
@@ -228,16 +182,17 @@ namespace exercises
                     {
                         cell += " ";
                     }
+
                     Console.Write(cell);
                     i++;
                 }
+
                 Console.WriteLine();
                 j++;
             }
+
             Console.WriteLine();
-
         }
-
 
 
         private static void FizzBuzz()
